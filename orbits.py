@@ -7,7 +7,7 @@ m= [{
     'p':[0,0],
     'v':[0,0],
     'a':[0,0],
-    'r':0.03
+    'r':6.96*10**8
 },
 
 {
@@ -15,7 +15,7 @@ m= [{
     'p':[0,-1.496*10**11],
     'v':[30000,0],
     'a':[0,0],
-    'r':0.03
+    'r':6.3781*10**6
 },
 
 {
@@ -23,7 +23,7 @@ m= [{
     'p':[0,2.28*10**11],
     'v':[25000,0],
     'a':[0,0],
-    'r':0.03
+    'r':3.38*10**6
 }]
 
 G = 6.67*10**-11
@@ -43,6 +43,8 @@ def timePass(t,tick,plotSpacing):
                 netAcc[0] += (x/hyp)* newAcc
                 netAcc[1] += (y/hyp)* newAcc
                 if hyp<m[otherObj]['r']+m[idx]['r']:
+                    del m[otherObj]
+                    del m[idx]
                     return True
         m[idx]['a'][0] = netAcc[0]
         m[idx]['a'][1] = netAcc[1]
@@ -58,8 +60,5 @@ def timePass(t,tick,plotSpacing):
 for i in range(10000):
     if timePass(8000,tick,100):
         print('impact')
-        break
     tick+=1
 plt.show()
-
-
