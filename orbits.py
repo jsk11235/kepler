@@ -6,7 +6,6 @@ ax = fig.add_subplot(111, projection='3d')
 
 tick = 0
 m= [
-#sun
 {
     'm':1.989 * 10**30,
     'p':[0,0,0],
@@ -33,7 +32,7 @@ m= [
     'v':[0,0,30000],
     'a':[0,0,0],
     'r':6.3781*10**6,
-    'c':'b',
+    'c':'#BBBBBB',
     'n':'USA'
 }]
 
@@ -42,7 +41,7 @@ G = 6.67*10**-11
 def timePass(t,tick,plotSpacing):
     if tick%plotSpacing==0:
         for idx in range(len(m)):
-            plt.plot(m[idx]['p'][0], m[idx]['p'][1],m[idx]['p'][2], color=m[idx]['c'], marker='o')
+            plt.plot(m[idx]['p'][0], m[idx]['p'][1],m[idx]['p'][2], color=m[idx]['c'], marker='o',markersize=3)
             if tick==0:
                 ax.text(m[idx]['p'][0], m[idx]['p'][1],m[idx]['p'][2],m[idx]['n'])
     for idx in range(len(m)):
