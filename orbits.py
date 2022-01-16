@@ -13,25 +13,28 @@ m= [
     'v':[0,0,0],
     'a':[0,0,0],
     'r':6.96*10**8,
-    'c':'000000'
+    'c':'000000',
+    'n':'sun'
 },
-#mars
+
 {
     'm':6.39 * 10**23,
     'p':[0,2.28*10**11,0],
     'v':[25000,0,0],
     'a':[0,0,0],
     'r':3.38*10**6,
-    'c':'r'
+    'c':'r',
+    'n':'mars'
 },
-#USA
+
 {
     'm':5.9722 * 10**24,
     'p':[0,-1.496*10**11,0],
     'v':[0,0,30000],
     'a':[0,0,0],
     'r':6.3781*10**6,
-    'c':'b'
+    'c':'b',
+    'n':'USA'
 }]
 
 G = 6.67*10**-11
@@ -40,6 +43,8 @@ def timePass(t,tick,plotSpacing):
     if tick%plotSpacing==0:
         for idx in range(len(m)):
             plt.plot(m[idx]['p'][0], m[idx]['p'][1],m[idx]['p'][2], color=m[idx]['c'], marker='o')
+            if tick==0:
+                ax.text(m[idx]['p'][0], m[idx]['p'][1],m[idx]['p'][2],m[idx]['n'])
     for idx in range(len(m)):
         netAcc = [0,0,0]
         for otherObj in range(len(m)):
